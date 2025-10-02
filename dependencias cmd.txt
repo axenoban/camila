@@ -1,0 +1,7 @@
+npm install --save-dev vite laravel-vite-plugin
+npm install tailwindcss postcss autoprefixer
+npx tailwindcss init
+
+npm run dev
+
+npm run build

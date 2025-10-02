@@ -1,0 +1,429 @@
+/*
+ * Archivo: resources/css/app.css
+ * Descripción: Estilos personalizados para Importadora Textil Camila,
+ * incluyendo tipografía, paleta de colores y ajustes de componentes.
+ * Corregido para problemas de layout y colores.
+ */
+
+/* 1. Redefinición de variables de color de Bootstrap con nuestra paleta */
+/* Esto asegura que las clases de Bootstrap como bg-dark, text-white, btn-primary, etc., usen nuestros colores */
+:root {
+    --bs-blue: #2C3E50;       /* Nuestro primary-dark para el primary de Bootstrap */
+    --bs-indigo: #C28B47;     /* Nuestro accent-color para el indigo de Bootstrap */
+    --bs-purple: #7F8C8D;     /* Nuestro secondary-dark para el purple de Bootstrap */
+    --bs-pink: #F8F9FA;       /* Para fondos claros */
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+
+    --bs-white: #ffffff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40; /* Color base para texto oscuro */
+
+    /* Variables Bootstrap adaptadas a nuestra paleta */
+    --bs-primary: #2C3E50;    /* Nuestro primary-dark */
+    --bs-secondary: #7F8C8D;  /* Nuestro secondary-dark */
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #F8F9FA;      /* Nuestro background-light */
+    --bs-dark: #2C3E50;       /* Nuestro primary-dark para fondos oscuros de Bootstrap */
+
+    /* Variables personalizadas para uso directo donde sea necesario */
+    --primary-dark: #2C3E50;
+    --primary-light: #34495E;
+    --secondary-dark: #7F8C8D;
+    --secondary-light: #BDC3C7;
+    --accent-color: #C28B47;
+    --background-light: #F8F9FA;
+    --white: #ffffff;
+    --black: #000000;
+
+    --bs-body-color: var(--primary-light); /* Color de texto general del body */
+    --bs-body-bg: var(--background-light); /* Fondo general del body */
+}
+
+/* 2. Estilos Generales y Tipografía */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-light);
+    color: var(--primary-light);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita el scroll horizontal en caso de desbordamiento */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-dark);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.display-3, .display-4, .display-5, .display-6 {
+    font-weight: 700;
+}
+
+/* Colores de texto personalizados */
+.text-primary-dark { color: var(--primary-dark) !important; }
+.text-secondary-dark { color: var(--primary-light) !important; }
+.text-secondary-light { color: var(--secondary-light) !important; }
+.text-accent { color: var(--accent-color) !important; }
+.text-white { color: var(--white) !important; }
+
+/* Fondos personalizados */
+.bg-primary-dark { background-color: var(--primary-dark) !important; }
+.bg-light-gray { background-color: #f2f4f6 !important; }
+.bg-cta {
+    background-color: var(--accent-color);
+    background-image: linear-gradient(135deg, var(--accent-color) 0%, #a0723a 100%);
+    color: var(--white);
+}
+.bg-dark {
+    background-color: var(--primary-dark) !important; /* Asegura que la clase bg-dark de Bootstrap use nuestro color */
+}
+
+
+/* 3. Navegación (Header) */
+.navbar {
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--white) !important;
+}
+
+.navbar-brand img {
+    filter: brightness(1.2);
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.2rem;
+    color: var(--secondary-light) !important;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-radius: 0.3rem;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--accent-color) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu-dark {
+    background-color: var(--primary-dark);
+    border: none;
+}
+
+.dropdown-menu-dark .dropdown-item {
+    color: var(--secondary-light);
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+    background-color: #1a2a36;
+    color: var(--accent-color);
+}
+.dropdown-divider {
+    border-top: 1px solid var(--secondary-dark);
+    margin: 0.5rem 0;
+}
+
+/* 4. Carrusel Principal (Hero Section) */
+.hero-img {
+    height: 70vh; /* Altura responsiva para escritorio */
+    object-fit: cover;
+    filter: brightness(0.6);
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0 15%;
+    color: var(--white);
+}
+.carousel-caption h5 {
+    font-size: 3.5rem;
+    color: var(--white);
+    text-shadow: 0px 4px 6px rgba(0,0,0,0.4);
+    margin-bottom: 1rem;
+}
+.carousel-caption p {
+    font-size: 1.5rem;
+    color: var(--secondary-light);
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 5. Botones */
+.btn-primary {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transition: all 0.3s ease;
+    color: var(--white);
+}
+.btn-primary:hover {
+    background-color: #1a2a36;
+    border-color: #1a2a36;
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+.btn-accent:hover {
+    background-color: #a0723a;
+    border-color: #a0723a;
+}
+
+.btn-outline-accent {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+.btn-outline-accent:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.btn-light {
+    color: var(--primary-dark);
+    background-color: var(--white);
+    border-color: var(--white);
+}
+.btn-light:hover {
+    color: var(--primary-dark);
+    background-color: #e9ecef;
+    border-color: #e9ecef;
+}
+
+.custom-shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 6. Tarjetas (Cards) */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: var(--white);
+    color: var(--primary-light);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-img-top {
+    height: 280px; /* Asegura una altura consistente para las imágenes de tarjeta */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla y cortando si es necesario */
+    width: 100%; /* Asegura que ocupe todo el ancho de la tarjeta */
+}
+
+.card-img-hover {
+    transition: transform 0.5s ease-in-out;
+}
+.card-img-hover:hover {
+    transform: scale(1.05);
+}
+
+/* 7. Icon Boxes y Value Cards */
+.icon-box, .value-card {
+    background-color: var(--white);
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--primary-light);
+}
+.icon-box:hover, .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* 8. Secciones Generales */
+section {
+    padding: 6rem 0; /* Mayor padding para más espacio y elegancia */
+    width: 100%; /* Asegura que la sección ocupe todo el ancho */
+    max-width: none; /* Evita que se restrinja por un max-width global si existiera */
+}
+
+hr {
+    border-top: 3px solid var(--accent-color);
+    width: 80px;
+    margin: 3rem auto;
+    opacity: 1;
+}
+
+/* 9. Sección Hero para Subpáginas */
+.hero-subpage {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    color: var(--white);
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+.hero-subpage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+.hero-subpage .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* 10. Mapa embebido */
+.map-container {
+    height: 450px;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* 11. Enlaces con hover accent */
+.hover-accent {
+    transition: color 0.3s ease;
+}
+.hover-accent:hover {
+    color: var(--accent-color) !important;
+}
+
+/* 12. Estilos del Pie de Página (Footer) */
+/* Asegúrate que el footer use las clases bg-dark y text-white como lo tienes en el HTML */
+/* Si necesitas más especificidad, podrías hacer esto: */
+footer.bg-dark {
+    background-color: var(--primary-dark) !important;
+    color: var(--secondary-light) !important; /* Cambia el color general del texto del footer a un gris claro */
+}
+
+footer .text-accent {
+    color: var(--accent-color) !important; /* Títulos del footer en color acento */
+}
+
+footer a {
+    color: var(--secondary-light); /* Enlaces del footer en gris claro */
+}
+
+footer a.hover-accent:hover {
+    color: var(--accent-color) !important; /* Hover de enlaces del footer en color acento */
+}
+
+
+/* 13. Responsivo */
+@media (max-width: 992px) { /* Ajustes para pantallas medianas (tablets) */
+    .carousel-caption h5 {
+        font-size: 2.8rem;
+    }
+    .carousel-caption p {
+        font-size: 1.2rem;
+    }
+    .hero-img {
+        height: 60vh;
+    }
+    section {
+        padding: 5rem 0;
+    }
+    .display-3 {
+        font-size: 3rem;
+    }
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    .card-img-top {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) { /* Ajustes para pantallas pequeñas (móviles) */
+    .carousel-caption h5 {
+        font-size: 2rem;
+    }
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+    .hero-img {
+        height: 50vh;
+    }
+    section {
+        padding: 4rem 0;
+    }
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    .display-4 {
+        font-size: 2rem;
+    }
+    .card-img-top {
+        height: 200px;
+    }
+    .map-container {
+        height: 350px;
+    }
+    .navbar-brand span {
+        display: none !important; /* Oculta el texto del logo en móviles pequeños */
+    }
+}
+
+@media (max-width: 576px) { /* Ajustes para pantallas muy pequeñas */
+    .hero-img {
+        height: 40vh;
+    }
+    .carousel-caption {
+        padding: 0 5%;
+    }
+    .carousel-caption h5 {
+        font-size: 1.8rem;
+    }
+    .carousel-caption p {
+        display: none !important; /* Oculta el párrafo completo en pantallas muy pequeñas */
+    }
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .map-container {
+        height: 250px;
+    }
+    .col { /* Asegura que las columnas se apilen correctamente en móviles */
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
